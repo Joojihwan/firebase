@@ -12,3 +12,6 @@
   Firebase 프로젝트를 생성한 후 Hosting 탭을 선택한다.    
   시작하기를 누르면 cmd 창에서 내려야할 명령을 순서대로 알려준다.  
   
+      npm install -g firebase-tools  
+      
+  위 명령을 통해 firebase의 tool들을 최신 파일로 업데이트 혹은 설치해준다.
