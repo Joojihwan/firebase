@@ -84,8 +84,10 @@
   
   만약 프로젝트ID.web.app의 url이 맘에 들지 않는다면
   firebase.json의 파일에서  
+  
       hosting {  
-        ...  
-        site: "수정할 부분";  
-      }  
+          ...  
+          site: "수정할 부분";  
+          }  
+          
   을 수정 혹은 추가하면 된다.
