@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-functions.js"></script>
+</head>
+<body>
+    <!-- Load the Firebase SDKs before loading this file -->
+    <script src="https://myblog-6f8bf.firebaseapp.com/__/firebase/init.js"></script>
+
+
+    <h1>FireBase Hosting Test</h1>
+
+    <div>
+        <label>Test Input</label>
+        <input id="testInput" type="text" placeholder="Test"/>
+        <button id="testBtn">확인</button>
+    </div>
+
+    <div id="msg">
+
+    </div>
+
+
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://myblog-6f8bf.firebaseapp.com/__/firebase/7.4.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://myblog-6f8bf.firebaseapp.com/__/firebase/7.4.0/firebase.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyA4EwPth5K_q3wNzIrwUFxHMi44e8QaTuU",
+            authDomain: "myblog-6f8bf.firebaseapp.com",
+            databaseURL: "https://myblog-6f8bf.firebaseio.com",
+            projectId: "myblog-6f8bf",
+            storageBucket: "project-id.appspot.com",
+            messagingSenderId: "Jihwan",
+            appID: "1:474420126781:web:70f09e0ef7e0157f907654",
+        };
+
+        firebase.initializeApp({
+            apiKey: 'AIzaSyA4EwPth5K_q3wNzIrwUFxHMi44e8QaTuU',
+            authDomain: 'myblog-6f8bf.firebaseapp.com',
+            projectId: 'myblog-6f8bf'
+        });
+
+        var db = firebase.firestore();
+        let testInput = $("#testInput");
+        let testBtn = $("#testBtn");
+
+        testBtn.on("click", addUser);
+
+        function addUser(){
+            console.log(testInput.text());
+            db.collection("users").add({
+            first: testInput.text(),
+            last: testInput.text.length,
+            born: 1815
+            })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+        }
+        
+    </script>
+</body>
+</html>
